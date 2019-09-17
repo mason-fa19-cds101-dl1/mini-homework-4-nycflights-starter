@@ -25,7 +25,11 @@ This dataset contains on-time data for all flights that departed from a New York
 Start working on these exercises **after** you have successfully cloned your repository into RStudio Server.
 
 1. As always, you should inspect a new dataset to become more familiar with what it contains.
-    To do this in RStudio, type the following command **in your *Console* window** (not in the R Markdown file):
+    
+    First, run the setup code block in the `flights_of_new_york.Rmd` file.
+    This will install and load the required packages.
+
+    Then type the following command **in your *Console* window** (not in the R Markdown file):
 
     ```r
     View(flights)
@@ -51,7 +55,7 @@ Start working on these exercises **after** you have successfully cloned your rep
     5.  Airplanes are reused across many different flights.
         Which columns would be helpful to use in identifying individual airplanes?
 
-2. Let's start with the `select()` function.
+3. Let's start with the `select()` function.
     The `select()` function *selects* columns from a dataset, which is useful when you're working with a dataset that contains dozens of variables.
     Try running the following code:
 
@@ -68,11 +72,11 @@ Start working on these exercises **after** you have successfully cloned your rep
     > All examples going forward will use the pipe whenever possible.
     
 
-3. There are multiple ways to specify columns with the `select()` command.
+4. There are multiple ways to specify columns with the `select()` command.
     To demonstrate this, copy the code you wrote in **Exercise 2** and replace `select(year, month)` with `select(year:day)`.
     What does the colon `:` do?
 
-4. The sort operation is a common and indispensible operation for organizing data, and the function from `dplyr` that allows us to sort is called `arrange()`.
+5. The sort operation is a common and indispensible operation for organizing data, and the function from `dplyr` that allows us to sort is called `arrange()`.
     `arrange()` sorts columns with textual data (`chr` data type) into alphabetical order and sorts numerical data into numerical order.
 
     Try running the following code:
@@ -92,14 +96,14 @@ Start working on these exercises **after** you have successfully cloned your rep
     > Using `sort()` the same way you use `arrange()` will give you errors.
     > For the duration of course **we will always prefer to use the `tidyverse` version of a function**, so always use `arrange()` and pretend `sort()` doesn’t exist.
 
-4.  By default, `arrange()` will sort data in ascending order.
+6.  By default, `arrange()` will sort data in ascending order.
     The function `desc()` can be used to sort in descending order.
     For example, to sort by months in reverse order, we would use `arrange(desc(month))`
     
     Let's use it to answer a simple question about the dataset: *what flight experienced the longest departure delay?*
     Identify the column that gives information about flight departure delays, and then use `arrange()` in combination with `desc()` to sort the `flights` dataset to find the flight with the longest departure delay.
 
-5.  Let's now try an example that uses the `mutate()` function, which is a little more complex.
+7.  Let's now try an example that uses the `mutate()` function, which is a little more complex.
     `mutate()` lets us **transform** a dataset by applying the same operation to each row in the dataset and appending the results as a *new* column.
     More simply, this is how you can add, subtract, multiply, and divide different two or more columns against each other.
     As an example, run the following command to calculate the average speed for each flight in miles per hour:
@@ -114,7 +118,7 @@ Start working on these exercises **after** you have successfully cloned your rep
     Where does the new column you just computed show up in the dataset and what is the name of this new column?
     What part of the code is controlling the name of the new column?
 
-6.  We are not limited to only one input at a time in `mutate()`.
+8.  We are not limited to only one input at a time in `mutate()`.
     As long as we separate each input by a comma, we can put as many inputs as we want in the `mutate()` function!
     As an example, let's take the `dep_time` column, which gives the clock time as an integer (for example, 11:00am is 1100) and separate it into an hours column and minutes column:
 
@@ -152,7 +156,7 @@ Start working on these exercises **after** you have successfully cloned your rep
     > So the proper fraction representation of $\dfrac{9}{4}$ is $2 \frac{1}{4}$.
     
 
-8. Next we consider the `filter()` function, which provides a ruled-based way to keep a subset of rows and remove the rest.
+9. Next we consider the `filter()` function, which provides a ruled-based way to keep a subset of rows and remove the rest.
     Here we just consider rules that are simple comparisons, which involve the symbols:
 
     *   `>`: greater than
@@ -181,7 +185,7 @@ Start working on these exercises **after** you have successfully cloned your rep
     After running the above code, figure out how to combine the two examples in one `filter()` function (**hint:** it resembles what you did with `mutate()`).
     This will tell you all the flights operated by United Airlines (UA) that arrived early.
 
-9. It is common to want to summarize the information contained within a dataset, such as computing sums and averages, or counting how many data points belong to different groups.
+10. It is common to want to summarize the information contained within a dataset, such as computing sums and averages, or counting how many data points belong to different groups.
     This is called data aggregation, as it **aggregates** many data points together and uses them to compute a cetain quantity.
     We perform data aggregation in R by using the commands `group_by()` and `summarize()`, which frequently show up as a pair.
 

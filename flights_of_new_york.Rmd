@@ -38,6 +38,7 @@ knitr::opts_chunk$set(
 )
 # Load required packages
 suppressPackageStartupMessages(library(tidyverse))
+install.packages("nycflights13")
 suppressPackageStartupMessages(library(nycflights13))
 ```
 
