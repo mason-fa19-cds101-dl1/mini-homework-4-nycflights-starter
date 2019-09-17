@@ -55,7 +55,7 @@ Start working on these exercises **after** you have successfully cloned your rep
     5.  Airplanes are reused across many different flights.
         Which columns would be helpful to use in identifying individual airplanes?
 
-3. Let's start with the `select()` function.
+2. Let's start with the `select()` function.
     The `select()` function *selects* columns from a dataset, which is useful when you're working with a dataset that contains dozens of variables.
     Try running the following code:
 
